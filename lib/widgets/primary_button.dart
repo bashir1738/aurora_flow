@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 
-class GradientButton extends StatefulWidget {
-  const GradientButton({
+class PrimaryButton extends StatefulWidget {
+  const PrimaryButton({
     super.key,
     required this.label,
     required this.onTap,
-    this.icon = Icons.arrow_forward_rounded,
-    this.colors = const [AppColors.violet, AppColors.pink],
+    this.icon,
+    this.color = AppColors.ink,
     this.expand = false,
   });
 
   final String label;
   final VoidCallback onTap;
-  final IconData icon;
-  final List<Color> colors;
+  final IconData? icon;
+  final Color color;
   final bool expand;
 
   @override
-  State<GradientButton> createState() => _GradientButtonState();
+  State<PrimaryButton> createState() => _PrimaryButtonState();
 }
 
-class _GradientButtonState extends State<GradientButton> {
+class _PrimaryButtonState extends State<PrimaryButton> {
   bool _pressed = false;
 
   @override
@@ -33,25 +33,14 @@ class _GradientButtonState extends State<GradientButton> {
       onTapCancel: () => setState(() => _pressed = false),
       onTap: widget.onTap,
       child: AnimatedScale(
-        scale: _pressed ? 0.96 : 1,
+        scale: _pressed ? 0.98 : 1,
         duration: const Duration(milliseconds: 160),
         curve: Curves.easeOut,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: widget.colors,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: widget.colors.last.withValues(alpha: 0.45),
-                blurRadius: 26,
-                offset: const Offset(0, 12),
-              ),
-            ],
+            borderRadius: BorderRadius.circular(14),
+            color: widget.color,
           ),
           child: Row(
             mainAxisSize: widget.expand ? MainAxisSize.max : MainAxisSize.min,
@@ -64,20 +53,23 @@ class _GradientButtonState extends State<GradientButton> {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 14,
-                    letterSpacing: 0.2,
                   ),
                 ),
               ),
-              const SizedBox(width: 10),
-              Icon(widget.icon, size: 18, color: Colors.white),
+              if (widget.icon != null) ...[
+                const SizedBox(width: 8),
+                Icon(widget.icon, size: 17, color: Colors.white),
+              ],
             ],
           ),
         ),
       ),
     );
 
-    return widget.expand ? SizedBox(width: double.infinity, child: button) : button;
+    return widget.expand
+        ? SizedBox(width: double.infinity, child: button)
+        : button;
   }
 }

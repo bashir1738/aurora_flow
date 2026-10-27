@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/app_shell.dart';
+import 'screens/onboarding_screen.dart';
 import 'theme/app_theme.dart';
 
 class AuroraFlowApp extends StatelessWidget {
@@ -12,7 +12,7 @@ class AuroraFlowApp extends StatelessWidget {
       title: 'Aurora Flow',
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
-      home: const AppShell(),
+      home: const OnboardingScreen(),
     );
   }
 }

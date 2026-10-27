@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 abstract final class AppColors {
-  static const background = Color(0xFF05060F);
-  static const surface = Color(0xFF0C0E1E);
-  static const pink = Color(0xFFFF5FA2);
-  static const violet = Color(0xFF7C5CFF);
-  static const cyan = Color(0xFF4FE3D2);
-  static const amber = Color(0xFFFFC46B);
+  static const background = Color(0xFFFAFAF8);
+  static const surface = Color(0xFFFFFFFF);
+  static const surfaceMuted = Color(0xFFF2F2EF);
+  static const border = Color(0xFFE6E6E1);
+  static const ink = Color(0xFF171717);
 
-  static const textPrimary = Color(0xFFF4F1FF);
-  static const textMuted = Color(0xFF9A97B8);
+  static const pink = Color(0xFF9C5F52);
+  static const violet = ink;
+  static const cyan = Color(0xFF4E6E62);
+  static const amber = Color(0xFF8C6B3C);
+
+  static const textPrimary = ink;
+  static const textMuted = Color(0xFF73736D);
 
   static const aurora = <Color>[pink, violet, cyan];
   static const sunset = <Color>[amber, pink, violet];
@@ -18,12 +22,13 @@ abstract final class AppColors {
 
 ThemeData buildTheme() {
   final scheme = ColorScheme.fromSeed(
-    seedColor: AppColors.violet,
-    brightness: Brightness.dark,
+    seedColor: AppColors.ink,
+    brightness: Brightness.light,
   ).copyWith(
-    surface: AppColors.background,
-    primary: AppColors.violet,
+    surface: AppColors.surface,
+    primary: AppColors.ink,
     secondary: AppColors.cyan,
+    outline: AppColors.border,
   );
 
   final base = ThemeData(
@@ -40,22 +45,22 @@ ThemeData buildTheme() {
       )
       .copyWith(
         displayLarge: const TextStyle(
-          fontSize: 46,
-          height: 1.04,
-          fontWeight: FontWeight.w800,
-          letterSpacing: -1.8,
+          fontSize: 44,
+          height: 1.06,
+          fontWeight: FontWeight.w700,
+          letterSpacing: -1.6,
           color: AppColors.textPrimary,
         ),
         headlineMedium: const TextStyle(
           fontSize: 28,
           height: 1.15,
-          fontWeight: FontWeight.w700,
-          letterSpacing: -0.6,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.5,
           color: AppColors.textPrimary,
         ),
         titleLarge: const TextStyle(
           fontSize: 20,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           color: AppColors.textPrimary,
         ),
         titleMedium: const TextStyle(
@@ -75,8 +80,8 @@ ThemeData buildTheme() {
         ),
         labelSmall: const TextStyle(
           fontSize: 10,
-          fontWeight: FontWeight.w700,
-          letterSpacing: 1.8,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 1.6,
           color: AppColors.textMuted,
         ),
       );
@@ -84,6 +89,6 @@ ThemeData buildTheme() {
   return base.copyWith(
     textTheme: text,
     iconTheme: const IconThemeData(color: AppColors.textPrimary),
-    dividerColor: Colors.white.withValues(alpha: 0.08),
+    dividerColor: AppColors.border,
   );
 }
