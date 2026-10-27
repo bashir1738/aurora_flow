@@ -54,12 +54,16 @@ class HomeScreen extends StatelessWidget {
           Reveal(
             child: Row(
               children: [
-                Text('Aurora Flow', style: theme.textTheme.titleLarge),
-                const Spacer(),
-                Text(
-                  '04 WORLDS',
-                  style: theme.textTheme.labelSmall,
+                Expanded(
+                  child: Text(
+                    'Aurora Flow',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.titleLarge,
+                  ),
                 ),
+                const SizedBox(width: 12),
+                Text('04 WORLDS', style: theme.textTheme.labelSmall),
               ],
             ),
           ),

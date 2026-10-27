@@ -49,10 +49,7 @@ class MorphBottomNav extends StatelessWidget {
                       HapticFeedback.selectionClick();
                       onChanged(i);
                     },
-                    child: _NavButton(
-                      item: items[i],
-                      selected: i == index,
-                    ),
+                    child: _NavButton(item: items[i], selected: i == index),
                   ),
                 ),
               ),
@@ -79,11 +76,8 @@ class _NavButton extends StatelessWidget {
             end: selected ? AppColors.ink : AppColors.textMuted,
           ),
           duration: const Duration(milliseconds: 220),
-          builder: (context, color, _) => Icon(
-            item.icon,
-            size: 20,
-            color: color,
-          ),
+          builder: (context, color, _) =>
+              Icon(item.icon, size: 20, color: color),
         ),
         const SizedBox(height: 3),
         AnimatedDefaultTextStyle(

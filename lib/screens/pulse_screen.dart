@@ -63,12 +63,12 @@ class _PulseScreenState extends State<PulseScreen> {
           const SizedBox(height: 20),
           Reveal(
             delay: const Duration(milliseconds: 240),
-            child: Row(
+            child: Wrap(
+              spacing: 18,
+              runSpacing: 6,
               children: [
                 Text('Inhale 4s', style: theme.textTheme.bodySmall),
-                const SizedBox(width: 18),
                 Text('Hold 2s', style: theme.textTheme.bodySmall),
-                const SizedBox(width: 18),
                 Text('Exhale 6s', style: theme.textTheme.bodySmall),
               ],
             ),

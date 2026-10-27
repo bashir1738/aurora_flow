@@ -21,15 +21,16 @@ abstract final class AppColors {
 }
 
 ThemeData buildTheme() {
-  final scheme = ColorScheme.fromSeed(
-    seedColor: AppColors.ink,
-    brightness: Brightness.light,
-  ).copyWith(
-    surface: AppColors.surface,
-    primary: AppColors.ink,
-    secondary: AppColors.cyan,
-    outline: AppColors.border,
-  );
+  final scheme =
+      ColorScheme.fromSeed(
+        seedColor: AppColors.ink,
+        brightness: Brightness.light,
+      ).copyWith(
+        surface: AppColors.surface,
+        primary: AppColors.ink,
+        secondary: AppColors.cyan,
+        outline: AppColors.border,
+      );
 
   final base = ThemeData(
     useMaterial3: true,

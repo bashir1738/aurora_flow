@@ -17,17 +17,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   static const _pages = <_OnboardingPage>[
     _OnboardingPage(
       title: 'A small\nFlutter study',
-      body: 'Motion, rhythm and depth — built by hand with CustomPainter '
+      body:
+          'Motion, rhythm and depth — built by hand with CustomPainter '
           'instead of animation packages.',
     ),
     _OnboardingPage(
       title: 'Quiet\nby default',
-      body: 'Flat surfaces, solid colour and a single accent. Nothing '
+      body:
+          'Flat surfaces, solid colour and a single accent. Nothing '
           'decorative competes with the content.',
     ),
     _OnboardingPage(
       title: 'Four\nsmall worlds',
-      body: 'A field of lines, a breathing circle, a tilting stack and a '
+      body:
+          'A field of lines, a breathing circle, a tilting stack and a '
           'solid palette. All of them are yours to explore.',
     ),
   ];
@@ -59,9 +62,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _finish() {
-    Navigator.of(context).pushReplacement(
-      motionRoute(const AppShell()),
-    );
+    Navigator.of(context).pushReplacement(motionRoute(const AppShell()));
   }
 
   @override
@@ -118,8 +119,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           if (value != _index) setState(() => _index = value);
                         },
                         itemBuilder: (context, index) {
-                          final delta =
-                              (index - page).clamp(-1.0, 1.0).toDouble();
+                          final delta = (index - page)
+                              .clamp(-1.0, 1.0)
+                              .toDouble();
                           final distance = delta.abs();
                           return Opacity(
                             opacity: (1 - distance * 0.7).clamp(0.0, 1.0),
@@ -144,9 +146,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         child: AnimatedContainer(
                           duration: const Duration(milliseconds: 300),
                           height: 2,
-                          color: i == _index
-                              ? AppColors.ink
-                              : AppColors.border,
+                          color: i == _index ? AppColors.ink : AppColors.border,
                         ),
                       ),
                       if (i != _pages.length - 1) const SizedBox(width: 8),
@@ -170,10 +170,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 }
 
 class _OnboardingPage {
-  const _OnboardingPage({
-    required this.title,
-    required this.body,
-  });
+  const _OnboardingPage({required this.title, required this.body});
 
   final String title;
   final String body;

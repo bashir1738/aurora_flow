@@ -6,11 +6,7 @@ import '../theme/app_theme.dart';
 
 /// A quiet animated field of sine lines.
 class LineField extends StatefulWidget {
-  const LineField({
-    super.key,
-    this.color = AppColors.ink,
-    this.lineCount = 4,
-  });
+  const LineField({super.key, this.color = AppColors.ink, this.lineCount = 4});
 
   final Color color;
   final int lineCount;
@@ -82,7 +78,8 @@ class _LineFieldPainter extends CustomPainter {
       final path = Path();
 
       for (double x = 0; x <= w; x += 3) {
-        final y = baseY +
+        final y =
+            baseY +
             math.sin((x / w) * math.pi * 2 * 1.1 + phase + i * 0.7) *
                 amplitude +
             math.sin((x / w) * math.pi * 2 * 2.4 - phase * 0.7 + i) *

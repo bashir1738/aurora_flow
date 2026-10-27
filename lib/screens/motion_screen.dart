@@ -17,12 +17,7 @@ class MotionScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(24, 18, 24, 140),
         children: [
-          Reveal(
-            child: Text(
-              'MOTION',
-              style: theme.textTheme.labelSmall,
-            ),
-          ),
+          Reveal(child: Text('MOTION', style: theme.textTheme.labelSmall)),
           const SizedBox(height: 12),
           Reveal(
             delay: const Duration(milliseconds: 60),

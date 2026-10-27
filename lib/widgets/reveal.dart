@@ -33,9 +33,10 @@ class _RevealState extends State<Reveal> with SingleTickerProviderStateMixin {
     _controller = AnimationController(vsync: this, duration: widget.duration);
     final curve = CurvedAnimation(parent: _controller, curve: Curves.easeOut);
     _fade = curve;
-    _slide = Tween<Offset>(begin: widget.offset, end: Offset.zero).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
-    );
+    _slide = Tween<Offset>(
+      begin: widget.offset,
+      end: Offset.zero,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
 
     if (widget.delay == Duration.zero) {
       _controller.forward();
